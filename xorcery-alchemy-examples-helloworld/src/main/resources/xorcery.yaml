@@ -1,0 +1,44 @@
+$schema: xorcery-schema.json
+crucible:
+  recipes:
+  - name: "HelloWorld"
+    source:
+      jar: concat
+      sources:
+      - jar: yaml
+        file: file1.yaml
+      - jar: yaml
+        file: file2.yaml
+    transmutes:
+      - jar: jslt
+        name: "drop"
+        jslt: "if (.data.test >= 3) . else null"
+      - jar: jslt
+        jslt: "{{ RESOURCE.string.transform.jslt }}"
+      - jar: jslt
+        jslt: |+
+          {
+            "metadata":{},
+            "data": {
+              "metadata": .metadata,
+              "data": .data
+              }
+          }
+    result:
+      jar: log
+log4j2:
+  Configuration:
+    appenders:
+      Console:
+        PatternLayout:
+          Pattern: "%msg\n"
+    thresholdFilter:
+      level: info
+    Loggers:
+      Root:
+        level: warn
+      logger:
+        - name: HelloWorld
+          level: info
+        - name: com.exoreaction.xorcery.core
+          level: warn
