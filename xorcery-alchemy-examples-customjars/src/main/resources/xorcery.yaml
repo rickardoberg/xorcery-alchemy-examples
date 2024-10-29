@@ -1,0 +1,11 @@
+$schema: xorcery-schema.json
+crucible:
+  recipes:
+    - name: "MyCustomRecipe"
+      source:
+        jar: mycustomsource
+        count: 10
+      transmutes:
+        - jar: mycustomtransmute
+      result:
+        jar: mycustomresult

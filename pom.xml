@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xorcery-alchemy-examples-helloworld</module>
+        <module>xorcery-alchemy-examples-customjars</module>
     </modules>
 
     <properties>

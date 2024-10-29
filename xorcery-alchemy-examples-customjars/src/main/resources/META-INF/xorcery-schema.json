@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://xorcery.exoreaction.com/modules/com.exoreaction.xorcery.alchemy/xorcery-alchemy-examples-customjars/schema",
+  "title": "xorcery-alchemy-examples-customjars configuration JSON Schema",
+  "$defs": {
+    "sourcejar": {
+      "anyOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/jar"
+            },
+            {
+              "properties": {
+                "jar": {
+                  "const": "mycustomsource"
+                },
+                "count": {
+                  "type": "int",
+                  "description": "How many items to produce"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "transmutejar": {
+      "anyOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/jar"
+            },
+            {
+              "properties": {
+                "jar": {
+                  "const": "mycustomtransmute"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "resultjar": {
+      "anyOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/jar"
+            },
+            {
+              "properties": {
+                "jar": {
+                  "const": "mycustomresult"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  }
+}
